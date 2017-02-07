@@ -20,6 +20,7 @@ import { ModalMapComponent } from "./modal-maps-list/modal-maps-list.component";
 import { ModalSaveMapComponent } from "./modal-save-map/modal-save-map.component";
 
 import { FormsModule } from '@angular/forms';
+import {ModalComponent} from "./modal/modal.component";
 
 /* Routing Module */
 // import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +34,7 @@ import { FormsModule } from '@angular/forms';
     , TabsModule
     , FormsModule
   ],
-  declarations: [ AppComponent, MapComponent, ToolbarMapComponent, ModalMapComponent, ModalSaveMapComponent ],
+  declarations: [ AppComponent, ModalComponent, MapComponent, ToolbarMapComponent, ModalMapComponent, ModalSaveMapComponent ],
   bootstrap:    [ AppComponent ]
 })
 

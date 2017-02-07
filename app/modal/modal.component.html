@@ -1,0 +1,27 @@
+<div class="modal fade in" [style.display]="isVisible() ? 'block' : 'none'">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">
+
+                    <ng-content select=".aba-modal-title"></ng-content>
+
+                </h1>
+                <button type="button" class="close" (click)="close()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+
+                <ng-content select=".aba-modal-body"></ng-content>
+
+            </div>
+            <div class="modal-footer">
+
+                <ng-content select=".aba-modal-footer"></ng-content>
+
+            </div>
+        </div>
+    </div>
+</div>
