@@ -16,7 +16,7 @@ import  { MapModule } from './map/map.module';
 import  { MapComponent } from './map/map.component';
 
 import { ToolbarMapComponent } from './toolbar/toolbar.component';
-import { ModalMapComponent } from "./modal-maps-list/modal-maps-list.component";
+import {ModalMapComponent, ModalMapFooterComponent} from "./modal-maps-list/modal-maps-list.component";
 import { ModalSaveMapComponent } from "./modal-save-map/modal-save-map.component";
 
 import { FormsModule } from '@angular/forms';
@@ -34,7 +34,15 @@ import {ModalComponent} from "./modal/modal.component";
     , TabsModule
     , FormsModule
   ],
-  declarations: [ AppComponent, ModalComponent, MapComponent, ToolbarMapComponent, ModalMapComponent, ModalSaveMapComponent ],
+  declarations: [
+      AppComponent
+    , ModalComponent
+    , MapComponent
+    , ToolbarMapComponent
+    , ModalMapComponent
+    , ModalMapFooterComponent
+    , ModalSaveMapComponent
+  ],
   bootstrap:    [ AppComponent ]
 })
 

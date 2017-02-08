@@ -10,7 +10,7 @@ import { OptionMap } from "../core/map";
 })
 export class ModalComponent {
 
-  @Input('visible') visible: boolean = true;
+  @Input('visible') visible: boolean = false;
   @Input('title') title: string;
 
   private isVisible(): boolean {

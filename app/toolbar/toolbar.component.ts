@@ -4,6 +4,7 @@ import { DrawType } from '../editor/drawMap';
 
 import { ModalMapComponent } from '../modal-maps-list/modal-maps-list.component';
 import { ModalSaveMapComponent } from "../modal-save-map/modal-save-map.component";
+import {ModalComponent} from "../modal/modal.component";
 
 export interface ITool { heading: string, image?: string }
 
@@ -25,7 +26,7 @@ export class ToolbarMapComponent {
   @Output() onSelectMap: EventEmitter<number> = new EventEmitter();
   @Output() onSetMapTitle: EventEmitter<string> = new EventEmitter();
 
-  @ViewChild(ModalMapComponent) modalMapComponent: ModalMapComponent;
+  @ViewChild('modalList') modalMapComponent: ModalComponent;
   @ViewChild(ModalSaveMapComponent) modalSaveMapComponent: ModalSaveMapComponent;
 
   private modalComponentVisible = false;
