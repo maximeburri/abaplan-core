@@ -2,29 +2,33 @@
     <input placeholder="Rechercher par titre ou id" [(ngModel)]="queryInputValue" (ngModelChange)="onChange($event)"/>
 </div>
 
-<div class="row">
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Id</th>
-            <th>Titre</th>
-            <th>Date de création</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let m of filteredMaps">
-            <td>
-                <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" (click)="onClick( m.uid )">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                </button>
-            </td>
-            <td>{{ m.uid }}</td>
-            <td>{{ m.title }}</td>
-            <td>{{ m.creationDate }}</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="panel panel-default">
+    <div class="row">
+        <table class="table table-fixed">
+            <thead>
+            <tr>
+                <th class="col-xs-1"></th>
+                <th class="col-xs-2">Id</th>
+                <th class="col-xs-6">Titre</th>
+                <th class="col-xs-3">Date de création</th>
+            </tr>
+            </thead>
+
+
+            <tbody>
+            <tr *ngFor="let m of filteredMaps">
+                <td class="col-xs-1">
+                    <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" (click)="onClick( m.uid )">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </td>
+                <td class="col-xs-2">{{ m.uid }}</td>
+                <td class="col-xs-6">{{ m.title }}</td>
+                <td class="col-xs-3">{{ m.creationDate }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- <button type="button" class="btn btn-primary">Save changes</button> -->

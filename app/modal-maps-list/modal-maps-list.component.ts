@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { MapService } from "../core/map.service";
 import { OptionMap } from "../core/map";
-import {ModalComponent} from "../modal/modal.component";
+import {ModalComponent, ModalService} from "../modal/modal.component";
 
 @Component({
   selector: 'aba-modal-maps-footer',
@@ -28,23 +28,23 @@ export class ModalMapComponent {
   private filteredMaps: OptionMap[] = this.maps;
   private queryInputValue: string = "";
 
-  constructor(private mapService: MapService, private parent: ModalComponent) {
-    mapService.maps().subscribe(
-      (maps : OptionMap[]) => {
-        this.maps = maps;
-        this.filteredMaps = maps;
-      },
-      (error) => {
-        console.log(error);
+  constructor(private mapService: MapService, private parent: ModalComponent, private modalService: ModalService) {
+    modalService.onOpenObservable.subscribe(
+      () => {
+        this.filteredMaps = this.maps;
+        this.queryInputValue = "";
+        mapService.maps().subscribe(
+          (maps : OptionMap[]) => {
+            this.maps = maps;
+            this.filteredMaps = maps;
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
       }
     );
 
-  }
-
-  public open(): void {
-    this.filteredMaps = this.maps;
-    this.queryInputValue = "";
-    this.parent.open();
   }
 
   private onChange(query: string): void {
@@ -56,7 +56,6 @@ export class ModalMapComponent {
   }
 
   private onClick(id: number): void {
-    this.close();
     this.onSelectChoice.emit(id);
   }
 
